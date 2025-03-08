@@ -1,0 +1,41 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backend
+  namespace: expense
+  labels:
+    app: backend
+    tier: backend
+    projet: expense
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+      tier: backend
+      projet: expense
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: backend
+        projet: expense
+  spec:
+    containers:
+    - name: backend
+      image: annollatulasi/backend:1.0.0
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql
+  namespace: expense
+spec:
+  selector:
+    app: mysql
+    tier: mysql
+    projet: expense
+  ports:
+  - protocol: TCP
+    port: 3306 #service port
+    targrtPort: 3306

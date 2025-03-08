@@ -1,0 +1,41 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mysql
+  namespace: expense
+  labels:
+    app: mysql
+    tier: mysql
+    projet: expense
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+      tier: mysql
+      projet: expense
+  template:
+    metadata:
+      labels:
+        app: mysql
+        tier: mysql
+        projet: expense
+  spec:
+    containers:
+    - name: mysql
+      image: annollatulasi/mysql:1.0.0
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql
+  namespace: expense
+spec:
+  selector:
+    app: mysql
+    tier: mysql
+    projet: expense
+  ports:
+  - protocol: TCP
+    port: 8080 #service port
+    targrtPort: 8080
