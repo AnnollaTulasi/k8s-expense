@@ -6,20 +6,20 @@ metadata:
   labels:
     app: mysql
     tier: mysql
-    projet: expense
+    project: expense
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: mysql
       tier: mysql
-      projet: expense
+      project: expense
   template:
     metadata:
       labels:
         app: mysql
         tier: mysql
-        projet: expense
+        project: expense
   spec:
     containers:
     - name: mysql
