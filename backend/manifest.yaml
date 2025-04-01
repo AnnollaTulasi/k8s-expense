@@ -6,20 +6,20 @@ metadata:
   labels:
     app: backend
     tier: backend
-    projet: expense
+    project: expense
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: backend
       tier: backend
-      projet: expense
+      project: expense
   template:
     metadata:
       labels:
         app: backend
         tier: backend
-        projet: expense
+        project: expense
   spec:
     containers:
     - name: backend
@@ -28,14 +28,14 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: mysql
+  name: backend
   namespace: expense
 spec:
   selector:
-    app: mysql
-    tier: mysql
+    app: backend
+    tier: backend
     projet: expense
   ports:
   - protocol: TCP
-    port: 3306 #service port
-    targrtPort: 3306
+    port: 8080 #service port
+    targetPort: 8080
