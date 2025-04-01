@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: annollatulasi/mysql:1.0.0
+        image: joindevops/mysql:1.0.0
 ---
 kind: Service
 apiVersion: v1
