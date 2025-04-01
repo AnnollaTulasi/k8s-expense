@@ -38,4 +38,4 @@ spec:
   ports:
   - protocol: TCP
     port: 8080 #service port
-    targrtPort: 8080
+    targetPort: 8080
